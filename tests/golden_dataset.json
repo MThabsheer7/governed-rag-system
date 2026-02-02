@@ -1,0 +1,162 @@
+{
+    "name": "Governed RAG Golden Dataset",
+    "version": "1.0",
+    "description": "Evaluation dataset for testing retrieval and answer synthesis quality",
+    "tests": [
+        {
+            "id": "Q01",
+            "category": "AI_ETHICS",
+            "question": "What are the 9 AI ethics principles?",
+            "expected_behavior": "List principles: fair, robust, safe, accountable, human-centered, transparent, sustainable, explainable, privacy-preserving",
+            "expected_sources": [
+                "MOCAI-AI-Ethics-EN-1.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q02",
+            "category": "AI_ETHICS",
+            "question": "How should AI systems handle personal data?",
+            "expected_behavior": "Discuss privacy, minimal intrusion, data governance",
+            "expected_sources": [
+                "MOCAI-AI-Ethics-EN-1.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q03",
+            "category": "AI_ETHICS",
+            "question": "What does human-centered AI mean?",
+            "expected_behavior": "Explain humans retain control over AI",
+            "expected_sources": [
+                "MOCAI-AI-Ethics-EN-1.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q04",
+            "category": "REGULATION",
+            "question": "What are the responsibilities for key management?",
+            "expected_behavior": "Explain roles for key generation, implementation",
+            "expected_sources": [
+                "UAE Information Assurance Regulation v1 1 pdf.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q05",
+            "category": "REGULATION",
+            "question": "What should happen when a contractor terminates?",
+            "expected_behavior": "Explain asset return, knowledge documentation",
+            "expected_sources": [
+                "UAE Information Assurance Regulation v1 1 pdf.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q06",
+            "category": "REGULATION",
+            "question": "What are the screening procedures for candidates?",
+            "expected_behavior": "Discuss notification procedures, screening responsibilities, background checks",
+            "expected_sources": [
+                "UAE Information Assurance Regulation v1 1 pdf.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q07",
+            "category": "TENDER",
+            "question": "What is DEWA tender number 2122500212 for?",
+            "expected_behavior": "Describe security guards, bouncers, CCTV operators",
+            "expected_sources": [
+                "DEWA_Tender.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q08",
+            "category": "TENDER",
+            "question": "What security services does DEWA require?",
+            "expected_behavior": "List guards, patrolling supervisors, motorbikes",
+            "expected_sources": [
+                "DEWA_Tender.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q09",
+            "category": "SOP",
+            "question": "What is an Environmental Action Plan (EAP)?",
+            "expected_behavior": "Explain when EAP is required (violations, repeated issues)",
+            "expected_sources": [
+                "SOP_Environmental_Inspection.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q10",
+            "category": "SOP",
+            "question": "What PPE is required for inspections?",
+            "expected_behavior": "Reference inspector requirements, contact owner for PPE info",
+            "expected_sources": [
+                "SOP_Environmental_Inspection.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q11",
+            "category": "SOP",
+            "question": "How are enforcement actions followed up?",
+            "expected_behavior": "Explain entity responses, schedules, EAP requirements",
+            "expected_sources": [
+                "SOP_Environmental_Inspection.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q12",
+            "category": "CROSS_DOC",
+            "question": "What cybersecurity standards are referenced in the documents?",
+            "expected_behavior": "Cite ISO/IEC 27032, SANS 20 from UAE regulation",
+            "expected_sources": [
+                "UAE Information Assurance Regulation v1 1 pdf.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q13",
+            "category": "CROSS_DOC",
+            "question": "What compliance requirements exist for AI systems?",
+            "expected_behavior": "May refuse if no specific AI compliance in corpus, or combine AI ethics + info assurance",
+            "expected_sources": [
+                "MOCAI-AI-Ethics-EN-1.pdf",
+                "UAE Information Assurance Regulation v1 1 pdf.pdf"
+            ],
+            "test_type": "FACTUAL"
+        },
+        {
+            "id": "Q14",
+            "category": "REFUSAL",
+            "question": "What is the GDP of UAE in 2024?",
+            "expected_behavior": "REFUSE - not in corpus",
+            "expected_sources": [],
+            "test_type": "REFUSAL"
+        },
+        {
+            "id": "Q15",
+            "category": "REFUSAL",
+            "question": "Who is the CEO of DEWA?",
+            "expected_behavior": "REFUSE - not in corpus",
+            "expected_sources": [],
+            "test_type": "REFUSAL"
+        },
+        {
+            "id": "Q16",
+            "category": "REFUSAL",
+            "question": "How do I install Python?",
+            "expected_behavior": "REFUSE - unrelated topic",
+            "expected_sources": [],
+            "test_type": "REFUSAL"
+        }
+    ]
+}

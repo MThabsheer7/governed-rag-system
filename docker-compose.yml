@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  rag-api:
+    build: .
+    container_name: governed-rag-api
+    ports:
+      - "8000:8000"
+    environment:
+      # LLM endpoint - use host.docker.internal to access host machine services
+      # For Colab ngrok: replace with your ngrok URL
+      - LLM_ENDPOINT=${LLM_ENDPOINT:-http://host.docker.internal:5000/v1/completions}
+    volumes:
+      # Persist vector store and documents across restarts
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+# Future extensions (uncomment when needed):
+#
+#   llm-server:
+#     image: ghcr.io/ggerganov/llama.cpp:server
+#     ports:
+#       - "5000:5000"
+#     volumes:
+#       - ./models:/models
+#     command: ["-m", "/models/qwen2.5-3b-q4.gguf", "--host", "0.0.0.0"]
