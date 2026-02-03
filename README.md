@@ -58,7 +58,7 @@ flowchart TD
     end
 
     Filter -- "Unauthorized" --> Deny[Refusal - 403 Forbidden]
-
+```
 ---
 
 ## 🛡️ Core Design Decisions
