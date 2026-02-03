@@ -116,6 +116,7 @@ While 75% seems low for general AI, in a governance context, it represents a sys
 
 ### Option 1: Local Installation
 
+```bash
 # Clone the repository
 git clone https://github.com/thabsheer/governed-rag-system.git
 cd governed-rag-system
@@ -133,10 +134,13 @@ cp .env.example .env
 
 # Start the server (auto-ingests documents on first run)
 uvicorn app.api.server:app --reload --port 8000
+```
 
 ### Option 2: Docker
 
+```bash
 docker-compose up --build
+```
 
 ### API Endpoints
 
@@ -148,14 +152,17 @@ docker-compose up --build
 
 ### Example Request
 
+```bash
 curl -X POST http://localhost:8000/answer \
   -H "Content-Type: application/json" \
   -d '{"text": "How should AI systems handle personal data?", "k": 5}'
+```
 
 ---
 
 ## 📂 Project Structure
 
+```
 governed-rag-system/
 ├── app/
 │   ├── api/          # FastAPI server & schemas
@@ -167,8 +174,10 @@ governed-rag-system/
 │   └── chroma_db/    # Vector store
 ├── tests/            # Evaluation scripts
 └── requirements.txt
+```
 
 ---
 
 ## 📜 License
+
 MIT
