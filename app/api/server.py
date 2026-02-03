@@ -3,6 +3,9 @@ import uuid
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 
 from app.core.logger import get_logger
 from app.retrieval.hybrid import HybridRetriever
@@ -63,6 +66,22 @@ async def lifespan(app: FastAPI):
     logger.info("Server Shutdown")
 
 app = FastAPI(title="Governed RAG API", version="1.0", lifespan=lifespan)
+
+# CORS middleware for demo UI
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # For demo - restrict in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Mount demo UI static files
+demo_path = Path(__file__).parent.parent.parent / "demo"
+if demo_path.exists():
+    app.mount("/demo", StaticFiles(directory=str(demo_path), html=True), name="demo")
+    logger.info(f"Demo UI mounted at /demo from {demo_path}")
+
 
 @app.middleware("http")
 async def add_process_time_and_audit(request: Request, call_next):
